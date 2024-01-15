@@ -12,7 +12,8 @@ def test_insertAtFront():
     a = linkedlist()
     a.insertAtFront(1)
     assert a.head != None, "insertAtFront() did not insert any node"
-
+    assert a.head.data == 1, f"insertAtFront() did not add correct data, expected 1, got {a.head.data}"
+    assert a.head.next == None, "insertAtFront() did not set up "
 def test_isEmpty2():
     a = linkedlist()
     a.insertAtFront(1)
@@ -33,3 +34,9 @@ def test_count():
     num  = a.count()
     assert num == 0, f"count() expected 10, got {num}"
     
+if __name__ == "__main__":
+    test_init()
+    test_isEmpty()
+    test_insertAtFront()
+    test_isEmpty2()
+    test_count()
