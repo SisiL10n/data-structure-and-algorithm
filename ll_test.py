@@ -1,4 +1,4 @@
-import linkedlist
+from linkedlist import *
 
 def test_init():
     a = linkedlist()
@@ -118,6 +118,7 @@ if __name__ == "__main__":
     test_insertAtFront()
     test_isEmpty2()
     test_count()
+<<<<<<< HEAD
     test_get()
     test_update()
     test_removeFront()
@@ -125,4 +126,4 @@ if __name__ == "__main__":
     test_removeEnd()
     test_insertAtIndex()
     test_removeAtIndex()
-    print("Congrats! You passed all the tests!")
+    print("Congrats! You passed all the tests:)")
