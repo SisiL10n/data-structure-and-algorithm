@@ -1,4 +1,4 @@
-import linkedlist
+from linkedlist import *
 
 def test_init():
     a = linkedlist()
@@ -26,13 +26,13 @@ def test_count():
     
     a.insertAtFront(1)
     num  = a.count()
-    assert num == 0, f"count() expected 1, got {num}"
+    assert num == 1, f"count() expected 1, got {num}"
 
     a = linkedlist()
     for i in range(10):
         a.insertAtFront(i)
     num  = a.count()
-    assert num == 0, f"count() expected 10, got {num}"
+    assert num == 10, f"count() expected 10, got {num}"
     
 if __name__ == "__main__":
     test_init()
@@ -40,3 +40,4 @@ if __name__ == "__main__":
     test_insertAtFront()
     test_isEmpty2()
     test_count()
+    print("Congrats! You passed all the tests:)")
