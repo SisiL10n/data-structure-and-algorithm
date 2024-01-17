@@ -63,39 +63,77 @@ class linkedlist:
     def insertAtEnd(self, data):
     # Given a data, add a node to the end of the linked list
         ptr = self.head
-        new_node = Node
-        new_node.data = data
+        new_node = Node(data)
 
-        while ptr is not None:
-            ptr = ptr.next
-        ptr.next = new_node
+        if ptr is None:
+            self.head = new_node
+        else:
+            while ptr.next is not None:
+                ptr = ptr.next
+            ptr.next = new_node
         
     def removeEnd(self):
     # Remove the last node of the linked list
         ptr = self.head
+        pre_ptr = self.head
 
-        while ptr is not None:
-            ptr = ptr.next
-        ptr = None    
+        if ptr is None:
+            print("List is already empty")
+        elif ptr.next is None:
+            self.head = None
+        else:
+            while ptr.next is not None:
+                pre_ptr = ptr
+                ptr = ptr.next
+            pre_ptr.next = None
+            
+              
     
     def insertAtIndex(self, data, index):
     # Given a data and an index, add a node at the index location in the linked list
     # index=0 means the beginning of the linked list and so on
     # Your function should verify that the index is valid. If not, print a message and do nothing
         ptr = self.head
+        pre_ptr = self.head
+        new_node = Node(data)
+        countList = self.count()
 
-        for i in range(index):
-            ptr = ptr.next
-            if ptr.data is data:
-                print("The index is valid")
-            else:
-                print("The index is invalid")
+        if index == 0:
+            self.insertAtFront(data)
+        
+        elif index == countList:
+            self.insertAtEnd(data)
+        
+        elif index > countList:
+            print("insertAtIndex: invalid index")
+        
+        elif index < countList:
+            for i in range(index):
+                pre_ptr = ptr
+                ptr = ptr.next
+            new_node.next = ptr
+            pre_ptr.next = new_node
+
+
 
     def removeAtIndex(self, index):
     # Remove the node at a given index
         ptr = self.head
+        pre_ptr = self.head
+        countList = self.count()
 
-        for i in range(index):
-            ptr = ptr.next
-        ptr = ptr.next
+        if index == 0:
+            self.removeFront()
+
+        if index == countList:
+            self.removeEnd()
+
+        if index > countList:
+            print("removeAtIndex: Invalid index")
+        
+        if index < countList:
+            for i in range(index):
+                pre_ptr = ptr
+                ptr = ptr.next
+            pre_ptr.next = ptr.next
     
